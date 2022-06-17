@@ -1,9 +1,11 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import './Navbar.css';
 
 const Navbar = () => {
+    const {user, logOut} = useAuth();
     const activeStyle = {
         fontWeight: "bold",
         fontSize: '1.2rem',
@@ -18,7 +20,27 @@ const Navbar = () => {
                 <NavLink className="navItem" activeStyle={ activeStyle} to="/dptr">DPTR Committee</NavLink>
                 <NavLink className="navItem" activeStyle={ activeStyle} to="/ippolicy">IP Policy</NavLink>
                 <input className="navItem mx-auto search" type="text" placeholder="Search Your Content" />
-                <NavLink className="navItem" activeStyle={ activeStyle} to="/login">Login</NavLink>
+                {
+                    user?.email ? (
+                        <>
+                         <NavLink
+                        className="navItem text-decoration-none me-3"
+                        to="/dashboard"
+                    >
+                        Dashboard
+                    </NavLink>
+
+                        <Button size="sm" variant="danger" onClick={logOut}>
+                    Logout
+                  </Button>
+                  <p className="text-decoration-none ms-3" to="#">
+                    {user.displayName}
+                  </p>
+                        </>
+                    ) : (
+                        <NavLink className="navItem" activeStyle={ activeStyle} to="/login">Login</NavLink>
+                    )
+                }
         </Container>
     );
 };

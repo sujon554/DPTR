@@ -7,7 +7,7 @@ const Deptproj = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        fetch("/service.json")
+        fetch("https://lit-fjord-88326.herokuapp.com/projects")
           .then((res) => res.json())
           .then((data) => setProjects(data));
       }, []);
