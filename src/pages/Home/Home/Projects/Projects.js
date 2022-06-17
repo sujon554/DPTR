@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Modal, Button } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 
 const Projects = ({ project }) => {
   const [show, setShow] = useState(false);
@@ -10,7 +11,7 @@ const Projects = ({ project }) => {
     author,
     coAuthor,
     summary,
-    externalInternal,
+    externalReview,
     technology,
     dptrCode,
     necessary,
@@ -30,6 +31,11 @@ const Projects = ({ project }) => {
     ID2,
     intake2,
   } = project;
+
+  const buttons = {
+    background: "#94fbd952",
+    color: "black",
+  };
 
   // Recent Projects
   const [recentProjects, setRecentProjects] = useState([]);
@@ -58,12 +64,15 @@ const Projects = ({ project }) => {
           </Col>
           <hr />
         </Row>
+
         {/* Modal    <!-- Button trigger modal --> */}
 
         <div className="d-flex justify-content-start">
           {/* **************************************************************** */}
 
-          <Button onClick={handleShow}>Project Developer</Button>
+          <Button style={buttons} onClick={handleShow}>
+            Project Developers
+          </Button>
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header>
@@ -97,14 +106,12 @@ const Projects = ({ project }) => {
           </Modal>
 
           {/* **************************************************************** */}
-
-            <Button className="ps-2 mx-2" onClick={handleShow}>
-            Project Supervisor
+          <Button style={buttons} className="ps-2 mx-2" onClick={handleShow}>
+            Supervisors
           </Button>
-
           <Modal show={show} onHide={handleClose}>
             <Modal.Header>
-              <Modal.Title>Project Developer Team</Modal.Title>
+              <Modal.Title>Project Supervisors Team</Modal.Title>
             </Modal.Header>
             <Modal.Body className="lh-1">
               <h4>Team Member One</h4>
@@ -115,7 +122,7 @@ const Projects = ({ project }) => {
                 <p>{intake0}</p>
               </ul>
               <hr />
-              <h4>Team Member Two</h4>
+              <h4>Team Member Twoo</h4>
               <ul>
                 <h5>{Developer1}</h5>
                 <p>{dept1}</p>
@@ -131,10 +138,13 @@ const Projects = ({ project }) => {
                 <p>{intake2}</p>
               </ul>
             </Modal.Body>
-         
-          </Modal> 
+          </Modal>
 
-          <hr />
+          {/* **************************************************************** */}
+          <Link />
+          <NavLink className="border border-primary rounded navItem" style={buttons} to="/MoreProjects">
+            More Completed Projects
+          </NavLink>
         </div>
 
         {/* **************************************************************** */}
@@ -145,11 +155,14 @@ const Projects = ({ project }) => {
         <h5>Use Technology</h5>
         <p>{technology} </p>
 
-        <h5>Why it is Necceryary</h5>
-        <ul>{necessary}</ul>
+        <h5>Why it is Necessary?</h5>
+        <p>{necessary}</p>
 
-        <h5>Application</h5>
-        <ul>{technology}</ul>
+        <h5>Applicable</h5>
+        <p>{necessary}</p>
+
+        <h5>External Review</h5>
+        <p>{externalReview}</p>
       </Col>
 
       <Col ld md="3" className="text-start ps-3">
@@ -160,14 +173,6 @@ const Projects = ({ project }) => {
         <h4>Recent 5 Submited Projects</h4>
         {recentProjects.map((recentPro) => (
           <li>{recentPro.title}</li>
-        ))}
-
-        <h4>Recent Five External Review</h4>
-        {recentProjects.map((recentPro) => (
-          <>
-            <h5>{recentPro.externalName}</h5>
-            <p>{recentPro.externalReview}</p>
-          </>
         ))}
       </Col>
     </Row>

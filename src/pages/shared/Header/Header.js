@@ -7,7 +7,7 @@ const Header = () => {
         <Container>
             <Row className="justify-content-md-center m-3">
                 <Col xs lg="2">
-                    <img width="80%" height="150" src={ logo} alt="" />
+                    <img width="75%" height="150" src={ logo} alt="" />
                 </Col>
 
                 <Col md="auto" className="animate__animated animate__zoomIn animate__slower">

@@ -1,15 +1,12 @@
-import React from 'react';
-import Body from '../Body/Body';
-import Header from '../../shared/Header/Header';
-// import Navbar from '../Header/Navbar';
+import React from "react";
+import Body from "../Body/Body";
 
 const Home = () => {
-    return (
-        <div>
-            <Header></Header>
-            <Body></Body>
-        </div>
-    );
+  return (
+    <div>
+      <Body></Body>
+    </div>
+  );
 };
 
 export default Home;
