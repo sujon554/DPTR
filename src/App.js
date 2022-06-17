@@ -11,7 +11,8 @@ import AuthProvider from "./contexts/AuthProvider";
 import Register from "./pages/Login/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Header from "./pages/shared/Header/Header";
-import MoreProjects from "./pages/Home/Home/MoreProjects/MoreProjects";
+import MoreProjects from "./pages/Home/Home/MoreProjects/Moreprojects/MoreProjects";
+import SingleProjects from "./pages/Home/Home/MoreProjects/SingleProjects/SingleProjects";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
               <MoreProjects />
             </Route>
 
+            <Route path="/singleprojet/:id">
+              <SingleProjects />
+            </Route>
             
           </Switch>
           <Footer />
