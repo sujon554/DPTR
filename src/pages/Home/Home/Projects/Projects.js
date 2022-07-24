@@ -8,8 +8,6 @@ const Projects = ({ project }) => {
   const handleShow = () => setShow(true);
   const {
     title,
-    author,
-    coAuthor,
     summary,
     externalReview,
     technology,
@@ -25,6 +23,10 @@ const Projects = ({ project }) => {
     Developer1,
     dept1,
     ID1,
+    supervisorName,
+    supervisorDesignation,
+    supervisorDept,
+    supervisorUniversity,
     intake1,
     Developer2,
     dept2,
@@ -114,35 +116,23 @@ const Projects = ({ project }) => {
               <Modal.Title>Project Supervisors Team</Modal.Title>
             </Modal.Header>
             <Modal.Body className="lh-1">
-              <h4>Team Member One</h4>
+              <h4>Team Member</h4>
               <ul>
-                <h5>{Developer0}</h5>
-                <p>{dept0}</p>
-                <p>{ID0}</p>
-                <p>{intake0}</p>
-              </ul>
-              <hr />
-              <h4>Team Member Twoo</h4>
-              <ul>
-                <h5>{Developer1}</h5>
-                <p>{dept1}</p>
-                <p>{ID1}</p>
-                <p>{intake1}</p>
-              </ul>
-              <hr />
-              <h4>Team Member Three</h4>
-              <ul>
-                <h5>{Developer2}</h5>
-                <p>{dept2}</p>
-                <p>{ID2}</p>
-                <p>{intake2}</p>
+                <h5>{supervisorName}</h5>
+                <p>{supervisorDesignation}</p>
+                <p>{supervisorDept}</p>
+                <p>{supervisorUniversity}</p>
               </ul>
             </Modal.Body>
           </Modal>
 
           {/* **************************************************************** */}
           <Link />
-          <NavLink className="border border-primary rounded navItem" style={buttons} to="/MoreProjects">
+          <NavLink
+            className="border border-primary rounded navItem"
+            style={buttons}
+            to="/MoreProjects"
+          >
             More Completed Projects
           </NavLink>
         </div>
@@ -171,6 +161,8 @@ const Projects = ({ project }) => {
         </video>
 
         <h4>Recent 5 Submited Projects</h4>
+        {/* <MoreProjects/> */}
+
         {recentProjects.map((recentPro) => (
           <li>{recentPro.title}</li>
         ))}
