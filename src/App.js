@@ -50,7 +50,6 @@ function App() {
             <Route path="/singleprojet/:id">
               <SingleProjects />
             </Route>
-            
           </Switch>
           <Footer />
         </BrowserRouter>

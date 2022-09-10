@@ -1,19 +1,20 @@
-import React from 'react';
-import { Container, Row, Col, Nav, Button } from 'react-bootstrap';
-import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
-import MakeAdmin from '../MakeAdmin/MakeAdmin';
-import ManageAllProjects from '../ManageAllProjects/ManageAllProjects';
-import PostProject from '../PostProject/PostProject';
-import Projects from '../Projects/Projects';
-import Review from '../Review/Review';
-import YourProjects from '../YourProjects/YourProjects';
+import React from "react";
+import { Container, Row, Col, Nav, Button } from "react-bootstrap";
+import { NavLink, Switch, Route, useRouteMatch } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import MakeSupervisor from "../MakeSupervisor/MakeSupervisor";
+import ManageAllProjects from "../ManageAllProjects/ManageAllProjects";
+import PostProject from "../PostProject/PostProject";
+import Projects from "../Projects/Projects";
+import Review from "../Review/Review";
+import YourProjects from "../YourProjects/YourProjects";
 
 const Dashboard = () => {
-    const { logOut, admin } = useAuth();
-    let { path, url } = useRouteMatch();
-    return (
-        <div>
+  const { logOut, admin, supervisor } = useAuth();
+  let { path, url } = useRouteMatch();
+  return (
+    <div>
       <div>
         <h1 className="text-center mt-3 mb-3  text-uppercase display-6">
           dash<strong className="text-info">board</strong>
@@ -32,25 +33,26 @@ const Dashboard = () => {
                   Your Project
                 </NavLink>
 
-                {/* <NavLink
-                  className=" mb-3 dashboard text-decoration-none"
-                  to={`${url}/payment`}
-                >
-                  Payment
-                </NavLink> */}
+                {supervisor && (
+                  <Nav>
+                    <NavLink
+                      className=" mb-3 dashboard text-decoration-none"
+                      to={`${url}/postproject`}
+                    >
+                      Add New Project
+                    </NavLink>
+                  </Nav>
+                )}
 
-                <NavLink
-                  className=" mb-3 dashboard text-decoration-none"
-                  to={`${url}/reviews`}
-                >
-                  Reviews
-                </NavLink>
-               
-
-                    
                 {admin && (
                   <Nav>
-                   <NavLink
+                    <NavLink
+                      className=" mb-3 dashboard text-decoration-none"
+                      to={`${url}/reviews`}
+                    >
+                     All Reviews
+                    </NavLink>
+                    <NavLink
                       className=" mb-3 dashboard text-decoration-none"
                       to={`${url}/postproject`}
                     >
@@ -61,7 +63,7 @@ const Dashboard = () => {
                       className=" mb-3 dashboard text-decoration-none"
                       to={`${url}/Projects`}
                     >
-                      Manage All Project Aprov
+                      Project Approval
                     </NavLink>
                     <NavLink
                       className=" mb-3 dashboard text-decoration-none"
@@ -72,9 +74,16 @@ const Dashboard = () => {
 
                     <NavLink
                       className=" mb-3 dashboard text-decoration-none"
+                      to={`${url}/makesupervisor`}
+                    >
+                      Make Supervisor
+                    </NavLink>
+
+                    <NavLink
+                      className=" mb-3 dashboard text-decoration-none"
                       to={`${url}/makeadmin`}
                     >
-                      Make Super Admin
+                      Make Admin
                     </NavLink>
                   </Nav>
                 )}
@@ -106,10 +115,6 @@ const Dashboard = () => {
                   <Review />
                 </Route>
 
-                <Route path={`${path}/payment`}>
-                  {/* <Payment></Payment> */}
-                </Route>
-
                 <Route path={`${path}/postproject`}>
                   <PostProject />
                 </Route>
@@ -125,13 +130,16 @@ const Dashboard = () => {
                 <Route path={`${path}/makeadmin`}>
                   <MakeAdmin></MakeAdmin>
                 </Route>
+                <Route path={`${path}/makesupervisor`}>
+                  <MakeSupervisor />
+                </Route>
               </Switch>
             </div>
           </Col>
         </Row>
       </Container>
     </div>
-    );
+  );
 };
 
 export default Dashboard;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Modal, Button } from "react-bootstrap";
+import ReactPlayer from 'react-player'
 import { Link, NavLink } from "react-router-dom";
 
 const Projects = ({ project }) => {
@@ -156,9 +157,11 @@ const Projects = ({ project }) => {
       </Col>
 
       <Col ld md="3" className="text-start ps-3">
-        <video controls autostart width={100} height={100} type="video/mp4">
+      <ReactPlayer width='100%'
+          height='auto' playIcon={true} controls={true} url={video} />
+        {/* <video controls autostart width={100} height={100} type="video/mp4">
           {video}
-        </video>
+        </video> */}
 
         <h4>Recent 5 Submited Projects</h4>
         {/* <MoreProjects/> */}

@@ -25,9 +25,8 @@ const Register = () => {
     e.preventDefault();
   };
 
-
   return (
-      <Container>
+    <Container>
       <h1 className="mb-5">
         <strong className="text-danger">REGISTRATION</strong>
         <strong className="text-info">HERE</strong>
@@ -82,6 +81,10 @@ const Register = () => {
               </Button>{" "}
               <br />
               <br />
+              {isLoading && <Spinner animation="border" />}
+              {user?.email && (
+                <Alert severity="success">User Created successfully!</Alert>
+              )}
               <NavLink to="/login">
                 <Button
                   className="fs-5 my-5 text-danger text-bold"
@@ -94,10 +97,6 @@ const Register = () => {
             </form>
           )}
 
-          {isLoading && <Spinner animation="border" />}
-          {user?.email && (
-            <Alert severity="success">User Created successfully!</Alert>
-          )}
           {authError && <Alert severity="error">{authError}</Alert>}
         </Col>
         <Col>

@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../pages/Login/Firebase/firebase.init";
-// import initializeAuthentication from "../pages/Login/Firebase/firebase.init";
+
 
 initializeAuthentication();
 
@@ -20,6 +20,7 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false);
+  const [supervisor, setSupervisor] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -146,10 +147,17 @@ const useFirebase = () => {
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
 
+  useEffect(() => {
+    fetch(`https://lit-fjord-88326.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setSupervisor(data.supervisor));
+  }, [user.email]);
+
 
   return {
     user,
     admin,
+    supervisor,
     logOut,
     authError,
     isLoading,

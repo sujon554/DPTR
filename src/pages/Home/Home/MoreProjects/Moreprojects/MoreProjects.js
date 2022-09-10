@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const MoreProjects = () => {
   //  Projects
-  const [Projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState([]);
   useEffect(() => {
     fetch("https://lit-fjord-88326.herokuapp.com/projects")
       .then((res) => res.json())
@@ -16,7 +16,7 @@ const MoreProjects = () => {
       <h1>All Projects</h1>
 
       <div className="table-striped text-start">
-        {Projects.map((project) => (
+        {projects.map((project) => (
           <div key={project._id} project={project}>
             <Link to={`/singleprojet/${project._id}`}>
             <h1>{project.title}</h1>
