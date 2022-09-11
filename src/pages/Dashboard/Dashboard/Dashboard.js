@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Nav, Button } from "react-bootstrap";
 import { NavLink, Switch, Route, useRouteMatch } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import Administrator from "../Administrator/Administrator";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import MakeSupervisor from "../MakeSupervisor/MakeSupervisor";
 import ManageAllProjects from "../ManageAllProjects/ManageAllProjects";
@@ -74,6 +75,13 @@ const Dashboard = () => {
 
                     <NavLink
                       className=" mb-3 dashboard text-decoration-none"
+                      to={`${url}/administrator`}
+                    >
+                      Administrator List
+                    </NavLink>
+
+                    <NavLink
+                      className=" mb-3 dashboard text-decoration-none"
                       to={`${url}/makesupervisor`}
                     >
                       Make Supervisor
@@ -104,7 +112,7 @@ const Dashboard = () => {
             <div className="menubar px-5 w-100">
               <Switch>
                 <Route exact path={path}>
-                  {/* <YourOrders></YourOrders> */}
+                <YourProjects />
                 </Route>
 
                 <Route exact path={`${path}/yourprojects`}>
@@ -132,6 +140,9 @@ const Dashboard = () => {
                 </Route>
                 <Route path={`${path}/makesupervisor`}>
                   <MakeSupervisor />
+                </Route>
+                <Route path={`${path}/administrator`}>
+                  <Administrator />
                 </Route>
               </Switch>
             </div>

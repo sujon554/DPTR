@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Modal, Button } from "react-bootstrap";
 import ReactPlayer from 'react-player'
+import Rating from "react-rating";
 import { Link, NavLink } from "react-router-dom";
 
 const Projects = ({ project }) => {
@@ -19,6 +20,7 @@ const Projects = ({ project }) => {
     Developer0,
     dept0,
     ID0,
+    rating,
     intake0,
     bookedServiceStatus,
     Developer1,
@@ -50,14 +52,21 @@ const Projects = ({ project }) => {
   return (
     <Row>
       {/* Title Here start  */}
-      <Col className="text-start" md lg="9">
+      <Col className="text-start" md lg="8">
         <h1>{title}</h1>
         <Row>
-          <Col>
-            <h6>{bookedServiceStatus}</h6>
+          <Col className="col-1">
+            <h5>{bookedServiceStatus}</h5>
           </Col>
-          <Col>
-            <h6>Rating(avg): 5</h6>
+          <Col className="d-flex col-5 ps-5">
+        <h6>External Rating</h6>
+          <Rating
+                  initialRating={rating}
+                  readonly
+                  emptySymbol="far fa-star fa-2x text-warning"
+                  fullSymbol="fas fa-star fa-2x text-warning"
+                  className="font-zise"
+                />
           </Col>
           <Col>
             <h6>Released on {releaseDate}</h6>
@@ -156,18 +165,24 @@ const Projects = ({ project }) => {
         <p>{externalReview}</p>
       </Col>
 
-      <Col ld md="3" className="text-start ps-3">
-      <ReactPlayer width='100%'
-          height='auto' playIcon={true} controls={true} url={video} />
-        {/* <video controls autostart width={100} height={100} type="video/mp4">
-          {video}
-        </video> */}
+      <Col ld md="4" className="text-start ps-3">
+      <h2>Project Introduction Video</h2>
+      <ReactPlayer width='100%' height='36%'
+           playIcon={true} controls={true} url={video} />
+        
+
+<h2>Your Feedback Please</h2>
+<h4>Rate This Work</h4>
+<Rating
+  emptySymbol="fa fa-star-o fa-4x"
+  fullSymbol="fa fa-star fa-4x"
+  fractions={2}
+/>
 
         <h4>Recent 5 Submited Projects</h4>
-        {/* <MoreProjects/> */}
 
         {recentProjects.map((recentPro) => (
-          <li>{recentPro.title}</li>
+          <li key={recentPro.id}>{recentPro.title}</li>
         ))}
       </Col>
     </Row>

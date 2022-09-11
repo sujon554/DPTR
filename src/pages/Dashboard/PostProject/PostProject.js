@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 
 const PostProject = () => {
@@ -68,6 +69,14 @@ const PostProject = () => {
               className="mb-3 py-2 px-3"
               placeholder="Release Date"
               {...register("releaseDate", { required: true })}
+            />
+
+            <input
+              style={{ outline: "none" }}
+              onClick={successTextRemover}
+              className="mb-3 py-2 px-3"
+              placeholder="Rating (out of 5)"
+              {...register("rating")}
             />
           </Row>
         </Col>
@@ -208,8 +217,6 @@ const PostProject = () => {
           </Row>
         </Col>
 
-
-
         {/* other ********************************** */}
 
         {/* ________________________________________________ */}
@@ -237,7 +244,7 @@ const PostProject = () => {
           {...register("necessary")}
         />
 
-<Col>
+        <Col>
           <Row xs={2} md={4} className="mx-0">
             {/* External Name one______________________________________  */}
             <input
@@ -305,7 +312,6 @@ const PostProject = () => {
           </Row>
         </Col>
 
-
         <textarea
           style={{ outline: "none" }}
           onClick={successTextRemover}
@@ -326,36 +332,32 @@ const PostProject = () => {
           defaultValue="Pending"
           {...register("bookedServiceStatus")}
         />
-      <Col>
-      <Row xs={2} md={2} className="mx-0">
-      <input
-          style={{ outline: "none" }}
-          className="mb-3 py-2 px-3"
-          placeholder={user.displayName}
-          defaultValue={user.displayName}
-          {...register("userName")}
-        />
-        <input
-          style={{ outline: "none" }}
-          className="mb-3 py-2 px-3"
-          placeholder={user.email}
-          defaultValue={user.email}
-          {...register("userEmail")}
-        />
-      </Row>
-      </Col>
-
-        {/* <input
-          style={{ outline: "none" }}
-          onClick={successTextRemover}
-          className="mb-3 py-2 px-3"
-          placeholder="Rating (out of 5)"
-          {...register("star")}
-        /> */}
+        <Col>
+          <Row xs={2} md={2} className="mx-0">
+            <input
+              style={{ outline: "none" }}
+              className="mb-3 py-2 px-3"
+              placeholder={user.displayName}
+              defaultValue={user.displayName}
+              {...register("userName")}
+            />
+            <input
+              style={{ outline: "none" }}
+              className="mb-3 py-2 px-3"
+              placeholder={user.email}
+              defaultValue={user.email}
+              {...register("userEmail")}
+            />
+          </Row>
+        </Col>
 
         <Button className="w-100 p-2" variant="success" type="submit">
           Add Project
         </Button>
+        
+
+
+        
       </Form>
 
       <p className="text-center text-danger text-uppercase mt-4 mb-5 pb-5 fs-4">

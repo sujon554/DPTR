@@ -62,7 +62,7 @@ const YourProjects = () => {
 
 
                   <Button
-                    onClick={() => deleteHandler(Project._id)}
+                    
                     variant="success"
                     size="sm"
                   >
@@ -73,7 +73,7 @@ const YourProjects = () => {
                     variant="danger"
                     size="sm"
                   >
-                    Cancel
+                    Delete
                   </Button>
 
                 </Card.Body>

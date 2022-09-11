@@ -1,12 +1,12 @@
 import React from 'react';
 import Deptproj from '../Deptproj/Deptproj';
-import Faculty from '../Faculty/Faculty';
+// import Faculty from '../Faculty/Faculty';
 
 const Department = () => {
     return (
         <div>
             <Deptproj></Deptproj>
-            <Faculty></Faculty>
+            {/* <Faculty></Faculty> */}
         </div>
     );
 };
