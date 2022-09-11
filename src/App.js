@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Header from "./pages/shared/Header/Header";
 import MoreProjects from "./pages/Home/Home/MoreProjects/Moreprojects/MoreProjects";
 import SingleProjects from "./pages/Home/Home/MoreProjects/SingleProjects/SingleProjects";
+import Ippolicy from "./pages/IpPolicy/Ippolicy"
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route path="/dptr">
               <Dptr></Dptr>
+            </Route>
+            <Route path="/ippolicy">
+              <Ippolicy />
             </Route>
             <Route path="/login">
               <Login />

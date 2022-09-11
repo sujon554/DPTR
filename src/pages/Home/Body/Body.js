@@ -10,7 +10,11 @@ const Body = () => {
   }, []);
   return (
     <div className="container">
-      {projects.map((project) => (
+     
+
+
+
+      {projects.slice(0, 1).map((project) => (
         <Projects key={project.id} project={project}></Projects>
       ))}
     </div>
@@ -19,4 +23,3 @@ const Body = () => {
 
 export default Body;
 
-// random()

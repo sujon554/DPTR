@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Modal, Button } from "react-bootstrap";
-import ReactPlayer from 'react-player'
+import ReactPlayer from "react-player";
 import Rating from "react-rating";
 import { Link, NavLink } from "react-router-dom";
 
@@ -59,14 +59,14 @@ const Projects = ({ project }) => {
             <h5>{bookedServiceStatus}</h5>
           </Col>
           <Col className="d-flex col-5 ps-5">
-        <h6>External Rating</h6>
-          <Rating
-                  initialRating={rating}
-                  readonly
-                  emptySymbol="far fa-star fa-2x text-warning"
-                  fullSymbol="fas fa-star fa-2x text-warning"
-                  className="font-zise"
-                />
+            <h6>External Rating</h6>
+            <Rating
+              initialRating={rating}
+              readonly
+              emptySymbol="far fa-star fa-2x text-warning"
+              fullSymbol="fas fa-star fa-2x text-warning"
+              className="font-zise"
+            />
           </Col>
           <Col>
             <h6>Released on {releaseDate}</h6>
@@ -166,24 +166,32 @@ const Projects = ({ project }) => {
       </Col>
 
       <Col ld md="4" className="text-start ps-3">
-      <h2>Project Introduction Video</h2>
-      <ReactPlayer width='100%' height='36%'
-           playIcon={true} controls={true} url={video} />
-        
+        <h2>Project Introduction Video</h2>
+        <ReactPlayer
+          width="100%"
+          height="36%"
+          playIcon={true}
+          controls={true}
+          url={video}
+        />
 
-<h2>Your Feedback Please</h2>
-<h4>Rate This Work</h4>
-<Rating
-  emptySymbol="fa fa-star-o fa-4x"
-  fullSymbol="fa fa-star fa-4x"
-  fractions={2}
-/>
+        <h2>Your Feedback Please</h2>
+        <h4>Rate This Work</h4>
+        <Rating
+          emptySymbol="fa fa-star-o fa-4x"
+          fullSymbol="fa fa-star fa-4x"
+          fractions={2}
+        />
 
-        <h4>Recent 5 Submited Projects</h4>
+        <h4>Recent 5 Submited Projectss</h4>
 
-        {recentProjects.map((recentPro) => (
-          <li key={recentPro.id}>{recentPro.title}</li>
+        {recentProjects.slice(0, 5).map((recentPro) => (
+          <div key={recentPro._id}>
+            <Link to={`/singleprojet/${recentPro._id}`}><h4>{recentPro.title}</h4></Link>
+            
+          </div>
         ))}
+        <Link>Show All</Link>
       </Col>
     </Row>
   );

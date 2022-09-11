@@ -9,10 +9,10 @@ const Header = () => {
         <Col xs lg="2">
           <img width="75%" height="150" src={logo} alt="" />
         </Col>
-
+        {/* animate__animated animate__zoomIn animate__slower */}
         <Col
           md="auto"
-          className="animate__animated animate__zoomIn animate__slower"
+          className=""
         >
           <h1>Dissertation and Project-Thesis Repository(DPTR)</h1>
           <h3>Bangladesh University of Business and Technology</h3>
