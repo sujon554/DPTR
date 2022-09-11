@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 
 const PostProject = () => {

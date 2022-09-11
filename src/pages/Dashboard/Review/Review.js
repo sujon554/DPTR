@@ -10,7 +10,7 @@ const Review = () => {
         .then(data => setReview(data));
         console.log(review)
 
-    }, []);
+    }, [ ]);
 
     return (
       

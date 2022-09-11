@@ -1,7 +1,7 @@
 .Navbar {
     display: flex;
     flex-direction: row;
-    background: rgb(204, 204, 204);
+    background: rgb(18, 209, 193);
 }
 .search {
     margin-right: 0;
@@ -12,7 +12,7 @@
 
 
 .navItem {
-    padding: 10px;
+    padding: 4px;
     margin-left: 10px;
     color:rgb(7, 7, 7);
     font-size: 1.2rem;

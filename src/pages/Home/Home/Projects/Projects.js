@@ -1,8 +1,10 @@
+
 import React, { useEffect, useState } from "react";
 import { Col, Row, Modal, Button } from "react-bootstrap";
 import ReactPlayer from "react-player";
 import Rating from "react-rating";
 import { Link, NavLink } from "react-router-dom";
+import './Projects.css'
 
 const Projects = ({ project }) => {
   const [show, setShow] = useState(false);
@@ -59,12 +61,12 @@ const Projects = ({ project }) => {
             <h5>{bookedServiceStatus}</h5>
           </Col>
           <Col className="d-flex col-5 ps-5">
-            <h6>External Rating</h6>
+            <h6>Rating(avg).</h6>
             <Rating
               initialRating={rating}
               readonly
-              emptySymbol="far fa-star fa-2x text-warning"
-              fullSymbol="fas fa-star fa-2x text-warning"
+              emptySymbol="far fa-star fa-1x text-warning"
+              fullSymbol="fas fa-star fa-1x text-warning"
               className="font-zise"
             />
           </Col>
@@ -166,20 +168,22 @@ const Projects = ({ project }) => {
       </Col>
 
       <Col ld md="4" className="text-start ps-3">
-        <h2>Project Introduction Video</h2>
+      
+       <h2 className="bg-info p-2">Project Introduction Video</h2>
         <ReactPlayer
           width="100%"
-          height="36%"
+          height="34%"
           playIcon={true}
           controls={true}
           url={video}
         />
+      
 
         <h2>Your Feedback Please</h2>
         <h4>Rate This Work</h4>
         <Rating
-          emptySymbol="fa fa-star-o fa-4x"
-          fullSymbol="fa fa-star fa-4x"
+          emptySymbol="fa fa-star-o fa-2x"
+          fullSymbol="fa fa-star fa-2x"
           fractions={2}
         />
 
@@ -187,11 +191,11 @@ const Projects = ({ project }) => {
 
         {recentProjects.slice(0, 5).map((recentPro) => (
           <div key={recentPro._id}>
-            <Link to={`/singleprojet/${recentPro._id}`}><h4>{recentPro.title}</h4></Link>
+            <Link className="text-decoration-none" to={`/singleprojet/${recentPro._id}`}><ol><li className="list-group-item link">{recentPro.title}</li></ol></Link>
             
           </div>
         ))}
-        <Link>Show All</Link>
+        <Link className="text-decoration-none" to="/MoreProjects"><h4 className="text-end">Show All</h4></Link>
       </Col>
     </Row>
   );

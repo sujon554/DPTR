@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Department from "./pages/Department/Department/Department";
 import Dptr from "./pages/DPTR/Dptr/Dptr";
 import Footer from "./pages/shared/Footer/Footer";
-import Navbar from "./pages/shared/Header/Navbar";
 import Home from "./pages/Home/Home/Home";
 import Login from "./pages/Login/Login/Login";
 import AuthProvider from "./contexts/AuthProvider";
@@ -14,13 +13,14 @@ import Header from "./pages/shared/Header/Header";
 import MoreProjects from "./pages/Home/Home/MoreProjects/Moreprojects/MoreProjects";
 import SingleProjects from "./pages/Home/Home/MoreProjects/SingleProjects/SingleProjects";
 import Ippolicy from "./pages/IpPolicy/Ippolicy"
+import Menu from "./pages/shared/Header/Menu";
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-          <Navbar></Navbar>
+          <Menu />
           <Header />
           <Switch>
             <Route exact path="/">
