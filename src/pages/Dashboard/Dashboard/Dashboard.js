@@ -8,6 +8,8 @@ import MakeSupervisor from "../MakeSupervisor/MakeSupervisor";
 import ManageAllProjects from "../ManageAllProjects/ManageAllProjects";
 import PostProject from "../PostProject/PostProject";
 import Projects from "../Projects/Projects";
+import RequestAccept from "../RequestAccept/RequestAccept";
+import RequestProject from "../RequestProject/RequestProject";
 import Review from "../Review/Review";
 import YourProjects from "../YourProjects/YourProjects";
 
@@ -17,7 +19,7 @@ const Dashboard = () => {
   return (
     <div>
       <div>
-        <h1 className="text-center mt-3 mb-3  text-uppercase display-6">
+        <h1 className="text-center text-uppercase display-6">
           dash<strong className="text-info">board</strong>
         </h1>
       </div>
@@ -29,6 +31,12 @@ const Dashboard = () => {
               <Nav className="d-grid me-auto">
                 <NavLink
                   className="mb-3 dashboard text-decoration-none"
+                  to={`${url}/requestproject`}
+                >
+                  Request Project
+                </NavLink>
+                <NavLink
+                  className="mb-3 dashboard text-decoration-none"
                   to={`${url}/yourprojects`}
                 >
                   Your Project
@@ -36,6 +44,12 @@ const Dashboard = () => {
 
                 {supervisor && (
                   <Nav>
+                    <NavLink
+                      className=" mb-3 dashboard text-decoration-none"
+                      to={`${url}/requestaccept`}
+                    >
+                      Request Accept
+                    </NavLink>
                     <NavLink
                       className=" mb-3 dashboard text-decoration-none"
                       to={`${url}/postproject`}
@@ -143,6 +157,12 @@ const Dashboard = () => {
                 </Route>
                 <Route path={`${path}/administrator`}>
                   <Administrator />
+                </Route>
+                <Route path={`${path}/requestproject`}>
+                  <RequestProject />
+                </Route>
+                <Route path={`${path}/requestaccept`}>
+                  <RequestAccept />
                 </Route>
               </Switch>
             </div>

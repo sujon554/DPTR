@@ -10,15 +10,20 @@ const PostProject = () => {
   const { user } = useAuth();
 
   const onSubmit = (data) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to Request this Project?"
+    );
+   if(proceed) {
     axios
-      .post("https://lit-fjord-88326.herokuapp.com/projects", data)
-      .then((res) => {
-        if (res.data.insertedId) {
-          // alert("Package Addeded Successfully!");
-          reset();
-          setSuccess("Project Added Successfully !");
-        }
-      });
+    .post("https://lit-fjord-88326.herokuapp.com/projects", data)
+    .then((res) => {
+      if (res.data.insertedId) {
+        // alert("Package Addeded Successfully!");
+        reset();
+        setSuccess("Project Added Successfully !");
+      }
+    });
+   }
   };
 
   //Remove Success Text

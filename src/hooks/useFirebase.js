@@ -76,9 +76,6 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-
-
-
   const logInUser = (email, password, location, history) => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
@@ -93,10 +90,6 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-
-
-
-
   const handleRegistraton = (e) => {
     console.log(email, password);
     e.preventDefault();
@@ -107,7 +100,6 @@ const useFirebase = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
     //observe user state change
 
   useEffect(() => {
@@ -145,6 +137,8 @@ const useFirebase = () => {
     fetch(`https://lit-fjord-88326.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
+        
+      
   }, [user.email]);
 
   useEffect(() => {
@@ -153,14 +147,6 @@ const useFirebase = () => {
       .then((data) => setSupervisor(data.supervisor));
   }, [user.email]);
 
-  // (
-  //   if(data.supervisor == supervisor) {
-  //     setAdmin(data.supervisor)
-  //   }
-  //   else if (data.admin == admin) {
-  //     setAdmin(data.admin)
-  //   }
-  // )
   return {
     user,
     admin,
