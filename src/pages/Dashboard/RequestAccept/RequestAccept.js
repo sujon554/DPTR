@@ -83,28 +83,64 @@ const RequestAccept = () => {
               <tr key={request._id}>
                 <th>{request.Groupname}</th>
                 <th>{request.department}</th>
-                <th>{request.member0}</th>
-                <th>{request.supervisorName}</th>
+                <th>
+                  <ul>
+                    {request.member0}
+                    {request.ID0}
+                    {request.intake0}
+                  </ul>
+                  <ul>
+                    {request.member1}
+                    {request.ID1}
+                    {request.intake1}
+                  </ul>
+                  <ul>
+                    {request.member2}
+                    {request.ID2}
+                    {request.intake2}
+                  </ul>
+                  <ul>
+                    {request.member3}
+                    {request.ID3}
+                    {request.intake3}
+                  </ul>
+                  <ul>
+                    {request.member4}
+                    {request.ID4}
+                    {request.intake4}
+                  </ul>
+                </th>
+                <th>
+                  <ul>
+                    {request.supervisorName}
+                    {request.designation}
+                    {request.supervisorDept}
+                  </ul>
+                </th>
                 <th>{request.summary}</th>
                 <th>{request.technology}</th>
                 <th>{request.purpose}</th>
-                <th><Button
-                  className="m-2"
-                  onClick={() => handleUpdate(request._id)}
-                  variant="success"
-                  size="sm"
-                >
-                  Approve
-                </Button></th>
+                <th>
+                  <Button
+                    className="m-2"
+                    onClick={() => handleUpdate(request._id)}
+                    variant="success"
+                    size="sm"
+                  >
+                    Approve
+                  </Button>
+                </th>
                 <th>{request.bookedServiceStatus}</th>
-                <th><Button
-                  className="m-2"
-                  onClick={() => deleteHandler(request._id)}
-                  variant="danger"
-                  size="sm"
-                >
-                  Delete
-                </Button></th>
+                <th>
+                  <Button
+                    className="m-2"
+                    onClick={() => deleteHandler(request._id)}
+                    variant="danger"
+                    size="sm"
+                  >
+                    Delete
+                  </Button>
+                </th>
               </tr>
             ))}
           </tbody>
