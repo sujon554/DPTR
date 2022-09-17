@@ -1,11 +1,13 @@
 import React from 'react';
 
 const practice = () => {
-    return (
-        <div>
-
-        </div>
-    );
+  return (
+    <div>
+      <table class="table table-striped">
+  ...
+</table>
+    </div>
+  );
 };
 
 export default practice;

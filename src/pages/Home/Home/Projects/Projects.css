@@ -1,0 +1,13 @@
+.intro {
+    background: #135252;
+    color: #feffff;
+    padding: 8px 4px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.feedback, .recent {
+    margin-top: 40px;
+    background: #135252;
+    color: #feffff;
+    padding: 8px 4px;
+}

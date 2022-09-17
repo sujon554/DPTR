@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Container, Modal, Navbar } from "react-bootstrap";
+import { Button, Container, Modal, Navbar, Table } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Navbar.css";
@@ -34,6 +34,7 @@ const Menu = () => {
     fontSize: "1.2rem",
     textAlign: "center",
     color: "red",
+    borderBottom: "2px solid #fff"
   };
 
   return (
@@ -79,10 +80,10 @@ const Menu = () => {
               <Button size="sm" variant="danger" onClick={logOut}>
                 Logout
               </Button>
-              <span className="text-decoration-none ms-3" to="#">
+              <span className="text-decoration-none text-light ms-3" to="#">
                 {user.displayName}
               </span>
-              <span className="text-decoration-none ms-3" to="#">
+              <span className="text-decoration-none text-light ms-3" to="#">
                 {user.email}
               </span>
             </>
@@ -92,13 +93,13 @@ const Menu = () => {
             </NavLink>
           )}
 
-          <Modal show={show} onHide={handleClose}>
+          <Modal  size="lg" show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Search Your Keywords</Modal.Title>
             </Modal.Header>
             <Modal.Body className="">
               <input
-                style={{ width: "60%", height: "35px" }}
+                style={{ width: "80%", height: "80%", color: "black" }}
                 className="navItem mx-auto search"
                 type="text"
                 placeholder="Search Your Content"
@@ -122,9 +123,15 @@ const Menu = () => {
                   })
                   .map((item) => (
                     <div key={item._id}>
-                      <Link to={`/singleprojet/${item._id}`}>
-                        <h3>{item.title}</h3>
-                      </Link>
+                     <table className="table table-striped mt-3">
+                      <tbody>
+                       <tr>
+                       <th> <Link className="text-decoration-none cursor-pointer" to={`/singleprojet/${item._id}`}>
+                        <h4 >{item.title}</h4>
+                      </Link></th>
+                       </tr>
+                      </tbody>
+                     </table>
                     </div>
                   ))
               )}

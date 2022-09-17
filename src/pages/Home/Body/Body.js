@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Projects from "../Home/Projects/Projects";
-
+import '../Home/Home.css'
 const Body = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
@@ -8,6 +8,7 @@ const Body = () => {
       .then((res) => res.json())
       .then((data) => setProjects(data.reverse()));
   }, []);
+  
   return (
     <div className="container">
      

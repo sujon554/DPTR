@@ -6,16 +6,10 @@ import ReactPlayer from "react-player";
 import { Link, NavLink } from "react-router-dom";
 
 const Deptproject = ({ project }) => {
-  // const [show, setShow] = useState(false);
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
+ 
   const {
     title,
     summary,
-    supervisorUniversity,
-    supervisorDesignation,
-    supervisorDept,
-    supervisorName,
     externalReview,
     technology,
     dptrCode,
@@ -25,17 +19,29 @@ const Deptproject = ({ project }) => {
     Developer0,
     dept0,
     ID0,
+    rating,
     intake0,
+    bookedServiceStatus,
     Developer1,
     dept1,
     ID1,
+    supervisorName,
+    supervisorDesignation,
+    supervisorDept,
+    supervisorUniversity,
     intake1,
-    bookedServiceStatus,
     Developer2,
     dept2,
     ID2,
     intake2,
   } = project;
+
+  
+  const buttons = {
+    background: "#94fbd952",
+    color: "black",
+  };
+  
   return (
     <Row>
       {/* Title Here start  */}

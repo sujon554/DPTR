@@ -6,8 +6,8 @@ import Dptr from "./pages/DPTR/Dptr/Dptr";
 import Footer from "./pages/shared/Footer/Footer";
 import Home from "./pages/Home/Home/Home";
 import Login from "./pages/Login/Login/Login";
-import AuthProvider from "./contexts/AuthProvider";
 import Register from "./pages/Login/Register/Register";
+import AuthProvider from "./contexts/AuthProvider";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Header from "./pages/shared/Header/Header";
 import MoreProjects from "./pages/Home/Home/MoreProjects/Moreprojects/MoreProjects";
@@ -44,6 +44,7 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
+            
             <Route path="/dashboard">
               <Dashboard />
             </Route>
@@ -54,6 +55,7 @@ function App() {
             <Route path="/singleprojet/:id">
               <SingleProjects />
             </Route>
+           
           </Switch>
           <Footer />
         </BrowserRouter>

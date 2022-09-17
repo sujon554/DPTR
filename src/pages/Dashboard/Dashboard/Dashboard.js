@@ -41,6 +41,13 @@ const Dashboard = () => {
                 >
                   Your Project
                 </NavLink>
+                
+                <NavLink
+                      className=" mb-3 dashboard text-decoration-none"
+                      to={`${url}/postproject`}
+                    >
+                      Add New Project
+                    </NavLink>
 
                 {supervisor && (
                   <Nav>

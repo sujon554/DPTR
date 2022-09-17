@@ -23,8 +23,8 @@ const useFirebase = () => {
   const [supervisor, setSupervisor] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
   const auth = getAuth();
+
   const signInUsingGoogle = () => {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider).then((result) => {
@@ -141,11 +141,11 @@ const useFirebase = () => {
       
   }, [user.email]);
 
-  useEffect(() => {
-    fetch(`https://lit-fjord-88326.herokuapp.com/users/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setSupervisor(data.supervisor));
-  }, [user.email]);
+  // useEffect(() => {
+  //   fetch(`https://lit-fjord-88326.herokuapp.com/users/${user.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setSupervisor(data.supervisor));
+  // }, [user.email]);
 
   return {
     user,

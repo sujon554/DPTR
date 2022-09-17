@@ -1,8 +1,10 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import logo from "../../Home/images/BUBT-Logo.png";
+import "./Navbar.css";
 
 const Header = () => {
+ 
   return (
     <Container>
       <Row className="justify-content-md-center m-3">
@@ -14,8 +16,8 @@ const Header = () => {
           md="auto"
           className=""
         >
-          <h1>Dissertation and Project-Thesis Repository(DPTR)</h1>
-          <h3>Bangladesh University of Business and Technology</h3>
+          <h1 className="header">Dissertation and Project-Thesis Repository(DPTR)</h1>
+          <h3 className="header">Bangladesh University of Business and Technology</h3>
 
           <div>
             <hr />

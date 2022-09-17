@@ -1,5 +1,13 @@
 .footer {
-    background: rgb(197, 197, 197);
-    padding: 10px;
-    
+
+  padding: 10px;
+  color: #ffffff !important;
+}
+
+.Footer-body {
+  background: #135252;
+}
+
+.items {
+  text-align: center;
 }

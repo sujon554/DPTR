@@ -1,15 +1,14 @@
-
 import React, { useEffect, useState } from "react";
 import { Col, Row, Modal, Button } from "react-bootstrap";
 import ReactPlayer from "react-player";
 import Rating from "react-rating";
 import { Link, NavLink } from "react-router-dom";
-import './Projects.css'
+import "./Projects.css";
 
 const Projects = ({ project }) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [smShow, setSmShow] = useState(false);
+  const [lgShow, setLgShow] = useState(false);
+
   const {
     title,
     summary,
@@ -55,7 +54,9 @@ const Projects = ({ project }) => {
     <Row>
       {/* Title Here start  */}
       <Col className="text-start" md lg="8">
-        <h1>{title}</h1>
+        <h2 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          {title}
+        </h2>
         <Row>
           <Col className="col-1">
             <h5>{bookedServiceStatus}</h5>
@@ -84,12 +85,12 @@ const Projects = ({ project }) => {
         <div className="d-flex justify-content-start">
           {/* **************************************************************** */}
 
-          <Button style={buttons} onClick={handleShow}>
+          <Button style={buttons} onClick={() => setSmShow(true)}>
             Project Developers
           </Button>
 
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header>
+          <Modal show={smShow} onHide={() => setSmShow(false)}>
+            <Modal.Header closeButton>
               <Modal.Title>Project Developer Team</Modal.Title>
             </Modal.Header>
             <Modal.Body className="lh-1">
@@ -120,17 +121,20 @@ const Projects = ({ project }) => {
           </Modal>
 
           {/* **************************************************************** */}
-          <Button style={buttons} className="ps-2 mx-2" onClick={handleShow}>
+          <Button
+            style={buttons}
+            className="ps-2 mx-2"
+            onClick={() => setLgShow(true)}
+          >
             Supervisors
           </Button>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header>
-              <Modal.Title>Project Supervisors Team</Modal.Title>
+          <Modal show={lgShow} onHide={() => setLgShow(false)}>
+            <Modal.Header closeButton>
+              <Modal.Title>Project Supervisors</Modal.Title>
             </Modal.Header>
             <Modal.Body className="lh-1">
-              <h4>Team Member</h4>
+              <h4>{supervisorName}</h4>
               <ul>
-                <h5>{supervisorName}</h5>
                 <p>{supervisorDesignation}</p>
                 <p>{supervisorDept}</p>
                 <p>{supervisorUniversity}</p>
@@ -151,25 +155,36 @@ const Projects = ({ project }) => {
 
         {/* **************************************************************** */}
 
-        <h5>Executive Summary</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          Executive Summary
+        </h5>
         <p className="text-start pe-3">{summary}</p>
 
-        <h5>Use Technology</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          Use Technology
+        </h5>
         <p>{technology} </p>
 
-        <h5>Why it is Necessary?</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          Why it is Necessary?
+        </h5>
         <p>{necessary}</p>
 
-        <h5>Applicable</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          Applicable
+        </h5>
         <p>{necessary}</p>
 
-        <h5>External Review</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          External Review
+        </h5>
         <p>{externalReview}</p>
       </Col>
 
       <Col ld md="4" className="text-start ps-3">
-      
-       <h2 className="bg-info p-2">Project Introduction Video</h2>
+        <h2 className="intro text-uppercase rounded-top">
+          Project Introductions
+        </h2>
         <ReactPlayer
           width="100%"
           height="34%"
@@ -177,25 +192,34 @@ const Projects = ({ project }) => {
           controls={true}
           url={video}
         />
-      
 
-        <h2>Your Feedback Please</h2>
-        <h4>Rate This Work</h4>
+        <h2 className="feedback text-uppercase">Your Feedback Please</h2>
+        <p className="p-0 m-0">Rate This Work</p>
         <Rating
           emptySymbol="fa fa-star-o fa-2x"
           fullSymbol="fa fa-star fa-2x"
           fractions={2}
         />
 
-        <h4>Recent 5 Submited Projectss</h4>
+        <h4 className="recent text-uppercase">
+          Recent Five Submited Projectss
+        </h4>
 
         {recentProjects.slice(0, 5).map((recentPro) => (
           <div key={recentPro._id}>
-            <Link className="text-decoration-none" to={`/singleprojet/${recentPro._id}`}><ol><li className="list-group-item link">{recentPro.title}</li></ol></Link>
-            
+            <Link
+              className="text-decoration-none cursor-pointer"
+              to={`/singleprojet/${recentPro._id}`}
+            >
+              <ul>
+                <li>{recentPro.title}</li>
+              </ul>
+            </Link>
           </div>
         ))}
-        <Link className="text-decoration-none" to="/MoreProjects"><h4 className="text-end">Show All</h4></Link>
+        <Link className="text-decoration-none" to="/MoreProjects">
+          <h6 className="text-end">Show All</h6>
+        </Link>
       </Col>
     </Row>
   );
