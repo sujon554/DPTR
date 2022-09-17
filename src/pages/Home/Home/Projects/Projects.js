@@ -53,7 +53,7 @@ const Projects = ({ project }) => {
   return (
     <Row>
       {/* Title Here start  */}
-      <Col className="text-start" md lg="8">
+      <Col className="text-start" md="8">
         <h2 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
           {title}
         </h2>
@@ -143,7 +143,7 @@ const Projects = ({ project }) => {
           </Modal>
 
           {/* **************************************************************** */}
-          <Link />
+          
           <NavLink
             className="border border-primary rounded navItem"
             style={buttons}

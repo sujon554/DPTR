@@ -1,12 +1,13 @@
-import { Button } from "bootstrap";
-import React from "react";
-// import { useState } from "react";
-import { Col, Row, Modal } from "react-bootstrap";
+import React, { useState } from "react";
+import { Col, Row, Modal, Button } from "react-bootstrap";
 import ReactPlayer from "react-player";
-import { Link, NavLink } from "react-router-dom";
+import Rating from "react-rating";
+import { NavLink } from "react-router-dom";
 
 const Deptproject = ({ project }) => {
- 
+  const [smShow, setSmShow] = useState(false);
+  const [lgShow, setLgShow] = useState(false);
+
   const {
     title,
     summary,
@@ -36,23 +37,31 @@ const Deptproject = ({ project }) => {
     intake2,
   } = project;
 
-  
   const buttons = {
     background: "#94fbd952",
     color: "black",
   };
-  
+
   return (
-    <Row>
+    <Row className="mt-5">
       {/* Title Here start  */}
-      <Col className="text-start" md lg="9">
-        <h1>{title}</h1>
+      <Col className="text-start" md lg="8">
+        <h2 className="text-uppercase p-3 bg-success bg-opacity-10 border border-info rounded">
+          {title}
+        </h2>
         <Row>
-          <Col>
-            <h6>{bookedServiceStatus}</h6>
+          <Col className="col-1">
+            <h5>{bookedServiceStatus}</h5>
           </Col>
-          <Col>
-            <h6>Rating(avg): 5</h6>
+          <Col className="d-flex col-5 ps-5">
+            <h6>Rating(avg).</h6>
+            <Rating
+              initialRating={rating}
+              readonly
+              emptySymbol="far fa-star fa-1x text-warning"
+              fullSymbol="fas fa-star fa-1x text-warning"
+              className="font-zise"
+            />
           </Col>
           <Col>
             <h6>Released on {releaseDate}</h6>
@@ -68,10 +77,11 @@ const Deptproject = ({ project }) => {
         <div className="d-flex justify-content-start">
           {/* **************************************************************** */}
 
-          {/* <Button onClick={handleShow}>Project Developers</Button>
-
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header>
+          <Button style={buttons} onClick={() => setSmShow(true)}>
+            Project Developers
+          </Button>
+          <Modal show={smShow} onHide={() => setSmShow(false)}>
+            <Modal.Header closeButton>
               <Modal.Title>Project Developer Team</Modal.Title>
             </Modal.Header>
             <Modal.Body className="lh-1">
@@ -99,31 +109,32 @@ const Deptproject = ({ project }) => {
                 <p>{intake2}</p>
               </ul>
             </Modal.Body>
-          </Modal> */}
-
+          </Modal>
           {/* **************************************************************** */}
-          {/* <Button className="ps-2 mx-2" onClick={handleShow}>
+          <Button
+            style={buttons}
+            className="ps-2 mx-2"
+            onClick={() => setLgShow(true)}
+          >
             Supervisors
           </Button>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header>
-              <Modal.Title>Project Supervisors Team</Modal.Title>
+          <Modal show={lgShow} onHide={() => setLgShow(false)}>
+            <Modal.Header closeButton>
+              <Modal.Title>Project Supervisors</Modal.Title>
             </Modal.Header>
             <Modal.Body className="lh-1">
-              <h4>Team Member</h4>
+              <h4>{supervisorName}</h4>
               <ul>
-                <h5>{supervisorName}</h5>
                 <p>{supervisorDesignation}</p>
                 <p>{supervisorDept}</p>
                 <p>{supervisorUniversity}</p>
               </ul>
             </Modal.Body>
-          </Modal> */}
+          </Modal>
 
-          {/* **************************************************************** */}
-          <Link />
           <NavLink
             className="border border-primary rounded navItem"
+            style={buttons}
             to="/MoreProjects"
           >
             More Completed Projects
@@ -132,34 +143,51 @@ const Deptproject = ({ project }) => {
 
         {/* **************************************************************** */}
 
-        <h5>Executive Summary</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          Executive Summary
+        </h5>
         <p className="text-start pe-3">{summary}</p>
 
-        <h5>Use Technology</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          Use Technology
+        </h5>
         <p>{technology} </p>
 
-        <h5>Why it is Necessary?</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          Why it is Necessary?
+        </h5>
         <p>{necessary}</p>
 
-        <h5>Applicable</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          Applicable
+        </h5>
         <p>{necessary}</p>
 
-        <h5>External Review</h5>
+        <h5 className="text-uppercase mt-4 p-3 bg-success bg-opacity-10 border border-info rounded">
+          External Review
+        </h5>
         <p>{externalReview}</p>
       </Col>
 
-      <Col ld md="3" className="text-start ps-3">
+      <Col ld="4" className="text-start ps-3">
+        <h2 className="intro text-uppercase rounded-top">
+          Project Introductions
+        </h2>
         <ReactPlayer
           width="100%"
-          height="auto"
+          height="34%"
           playIcon={true}
           controls={true}
           url={video}
         />
 
-        <h4>Recent 5 Submited Projects</h4>
-
-       
+        <h2 className="feedback text-uppercase">Your Feedback Please</h2>
+        <p className="p-0 m-0">Rate This Work</p>
+        <Rating
+          emptySymbol="fa fa-star-o fa-2x"
+          fullSymbol="fa fa-star fa-2x"
+          fractions={2}
+        />
       </Col>
     </Row>
   );
