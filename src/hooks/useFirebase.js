@@ -141,11 +141,11 @@ const useFirebase = () => {
       
   }, [user.email]);
 
-  // useEffect(() => {
-  //   fetch(`https://lit-fjord-88326.herokuapp.com/users/${user.email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setSupervisor(data.supervisor));
-  // }, [user.email]);
+  useEffect(() => {
+    fetch(`https://lit-fjord-88326.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setSupervisor(data.supervisor));
+  }, [user.email]);
 
   return {
     user,
