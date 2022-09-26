@@ -58,10 +58,10 @@ const Projects = ({ project }) => {
           {title}
         </h2>
         <Row>
-          <Col className="col-1">
+          <Col className="col-2">
             <h5>{bookedServiceStatus}</h5>
           </Col>
-          <Col className="d-flex col-5 ps-5">
+          <Col className="d-flex col-4 ps-5">
             <h6>Rating(avg).</h6>
             <Rating
               initialRating={rating}

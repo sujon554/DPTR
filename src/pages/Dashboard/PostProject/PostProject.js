@@ -68,10 +68,11 @@ const PostProject = () => {
               {...register("dptrCode", { required: true })}
             />
             <input
+            type="date"
               style={{ outline: "none" }}
               onClick={successTextRemover}
               className="mb-3 py-2 px-3"
-              placeholder="Release Date"
+             
               {...register("releaseDate", { required: true })}
             />
 
@@ -341,12 +342,14 @@ const PostProject = () => {
             <input
               style={{ outline: "none" }}
               className="mb-3 py-2 px-3"
+              readOnly=""
               placeholder={user.displayName}
               defaultValue={user.displayName}
               {...register("userName")}
             />
             <input
               style={{ outline: "none" }}
+              readOnly=""
               className="mb-3 py-2 px-3"
               placeholder={user.email}
               defaultValue={user.email}

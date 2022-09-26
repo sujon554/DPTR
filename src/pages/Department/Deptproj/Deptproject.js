@@ -50,7 +50,7 @@ const Deptproject = ({ project }) => {
           {title}
         </h2>
         <Row>
-          <Col className="col-1">
+          <Col className="col-2">
             <h5>{bookedServiceStatus}</h5>
           </Col>
           <Col className="d-flex col-5 ps-5">

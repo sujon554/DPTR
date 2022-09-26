@@ -5,7 +5,7 @@ const Projects = () => {
 
     const [orders, setOrders] = useState([]);
   const [reload, setReload] = useState(false);
-  const [status, setStatus] = useState("Approved");
+  const [status, setStatus] = useState("Full & Final");
   useEffect(() => {
     fetch("https://lit-fjord-88326.herokuapp.com/projects")
       .then((res) => res.json())
@@ -79,7 +79,7 @@ const Projects = () => {
                   variant="success"
                   size="sm"
                 >
-                  Approved
+                  Full & Final
                 </Button>
                 <Button
                   className="m-2"

@@ -9,7 +9,7 @@ import ManageAllProjects from "../ManageAllProjects/ManageAllProjects";
 import PostProject from "../PostProject/PostProject";
 import Projects from "../Projects/Projects";
 import RequestAccept from "../RequestAccept/RequestAccept";
-import RequestProject from "../RequestProject/RequestProject";
+import RequestProject from "../CreateProject/CreateProject";
 import Review from "../Review/Review";
 import YourProjects from "../YourProjects/YourProjects";
 
@@ -33,7 +33,7 @@ const Dashboard = () => {
                   className="mb-3 dashboard text-decoration-none"
                   to={`${url}/requestproject`}
                 >
-                  Request Project
+                  Create Projects
                 </NavLink>
                 <NavLink
                   className="mb-3 dashboard text-decoration-none"
