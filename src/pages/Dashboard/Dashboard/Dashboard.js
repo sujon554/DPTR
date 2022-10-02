@@ -12,6 +12,7 @@ import RequestAccept from "../RequestAccept/RequestAccept";
 import RequestProject from "../CreateProject/CreateProject";
 import Review from "../Review/Review";
 import YourProjects from "../YourProjects/YourProjects";
+import StudentRequest from "../StudentRequest/StudentRequest";
 
 const Dashboard = () => {
   const { logOut, admin, supervisor } = useAuth();
@@ -29,6 +30,12 @@ const Dashboard = () => {
           <Col sm={2} xl={2} lg={2}>
             <div className="pt-5 px-2">
               <Nav className="d-grid me-auto">
+                <NavLink
+                  className="mb-3 dashboard text-decoration-none"
+                  to={`${url}/studentrequest`}
+                >
+                  Student Request
+                </NavLink>
                 <NavLink
                   className="mb-3 dashboard text-decoration-none"
                   to={`${url}/requestproject`}
@@ -136,6 +143,9 @@ const Dashboard = () => {
                 <YourProjects />
                 </Route>
 
+                <Route exact path={`${path}/studentrequest`}>
+                  <StudentRequest/>
+                </Route>
                 <Route exact path={`${path}/yourprojects`}>
                   <YourProjects />
                 </Route>

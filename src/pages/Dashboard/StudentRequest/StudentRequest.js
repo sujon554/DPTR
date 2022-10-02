@@ -1,46 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
-const YourProjects = () => {
+const StudentRequest = () => {
   const [projects, setProjects] = useState([]);
   const { user } = useAuth();
 
   useEffect(() => {
     fetch(
-      `https://lit-fjord-88326.herokuapp.com/myprojects?email=${user.email}`
+      `https://lit-fjord-88326.herokuapp.com/reqproject?email=${user.email}`
     )
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
 
+  
+
   //   /Delete projects
-  const deleteHandler = (id) => {
-    console.log(id);
-    const proceed = window.confirm(
-      "Are you sure, you want to delete this package?"
-    );
-    if (proceed) {
-      fetch(`https://lit-fjord-88326.herokuapp.com/myprojects/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            const remainingProjects = projects.filter(
-              (Project) => Project._id !== id
-            );
-            setProjects(remainingProjects);
-          }
-        });
-    }
-  };
+  //   const deleteHandler = (id) => {
+  //     console.log(id);
+  //     const proceed = window.confirm(
+  //       "Are you sure, you want to delete this package?"
+  //     );
+  //     if (proceed) {
+  //       fetch(`https://lit-fjord-88326.herokuapp.com/reqproject/${id}`, {
+  //         method: "DELETE",
+  //       })
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           if (data.deletedCount > 0) {
+  //             const remainingProjects = projects.filter((Project) => Project._id !== id);
+  //             setProjects(remainingProjects);
+  //           }
+  //         });
+  //     }
+  //   };
 
   return (
     <div>
       <Container>
         <h1>
-          Our Team<strong className="text-info"> Projects</strong>
+          Student<strong className="text-info"> Projects Request</strong>
         </h1>
         <h3 className="my-5">Total projects {projects.length}</h3>
         <Row className="g-5">
@@ -58,15 +59,13 @@ const YourProjects = () => {
                   </Card.Text>
 
                   <Button variant="success" size="sm">
-                    Update
+                    Request
                   </Button>
-                  <Button
-                    onClick={() => deleteHandler(Project._id)}
-                    variant="danger"
-                    size="sm"
-                  >
-                    Delete
-                  </Button>
+
+                    <Button  variant="info" size="sm">
+                     Details
+                    </Button>
+            
                 </Card.Body>
 
                 <Card.Footer>
@@ -83,4 +82,4 @@ const YourProjects = () => {
   );
 };
 
-export default YourProjects;
+export default StudentRequest;
