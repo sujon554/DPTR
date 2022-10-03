@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const StudentRequest = () => {
   const [projects, setProjects] = useState([]);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const { user } = useAuth();
 
   useEffect(() => {
@@ -14,8 +17,6 @@ const StudentRequest = () => {
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
-
-  
 
   //   /Delete projects
   //   const deleteHandler = (id) => {
@@ -61,11 +62,32 @@ const StudentRequest = () => {
                   <Button variant="success" size="sm">
                     Request
                   </Button>
-
-                    <Button  variant="info" size="sm">
-                     Details
-                    </Button>
-            
+                  {/* Open Modal For details  */}
+                  <Button variant="info" size="sm" onClick={handleShow}>
+                    Details
+                  </Button>
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>{Project.Groupname}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                     <h3>Group Name: {Project.ProjectTitle}</h3>
+                     <h3>Department: {Project.department}</h3>
+                     <p><strong>Summary:</strong> {Project.summary}</p>
+                     <p><strong>Technology: </strong> {Project.technology}</p>
+                     <p><strong>Purpose:</strong> {Project.purpose}</p>
+                    <hr></hr>
+                    <h4>Supervisor</h4>
+                    <p><strong>Name:</strong> {Project.userName}</p>
+                    <p><strong>Designation:</strong> {Project.designation}</p>
+                    <p><strong>Email:</strong> {Project.userEmail}</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Close
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
                 </Card.Body>
 
                 <Card.Footer>
