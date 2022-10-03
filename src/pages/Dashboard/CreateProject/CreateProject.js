@@ -16,7 +16,7 @@ const RequestProject = () => {
       .then((res) => {
         if (res.data.insertedId) {
           reset();
-          setSuccess("Project Request Successfully !");
+          setSuccess("Project Create Successfully !");
         }
       });
   };
@@ -95,6 +95,7 @@ const RequestProject = () => {
         <Col>
           <Row md={3} className="mx-0">
             <input
+            
               style={{ outline: "none" }}
               className="mb-3 py-2 px-3"
               placeholder={user.displayName}
@@ -177,7 +178,7 @@ const RequestProject = () => {
         </Col>
 
         <Button className="w-100 p-2" variant="danger" type="submit">
-          Request Project
+          Create Project
         </Button>
       </Form>
 

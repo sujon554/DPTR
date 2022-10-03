@@ -184,6 +184,7 @@ const StudentRequest = () => {
                             <h4>Supervisor Info</h4>
                             <label>Supervisor: </label>
                             <input
+                           
                               style={{ outline: "none" }}
                               onClick={successTextRemover}
                               className="mb-3 py-2 px-3"
