@@ -377,7 +377,7 @@ const StudentRequest = () => {
                           Request to Supervisor
                         </Button>
                       </Form>
-                      <p className="text-center text-danger text-uppercase mt-4 mb-5 pb-5 fs-4">
+                      <p className="text-center text-danger text-uppercase mt-4 fs-4">
         {success}
       </p>
                     </Modal.Body>
