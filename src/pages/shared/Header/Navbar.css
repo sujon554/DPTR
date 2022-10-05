@@ -3,6 +3,15 @@
     flex-direction: row;
     background: #135252;
 }
+.NavDropdown {
+    background: #135252;
+    color:rgb(0, 0, 0);
+}
+.NavDropdown :hover {
+    background: #135252;
+    color:rgb(255, 255, 255) !important;
+
+}
 .search {
     margin-right: 0;
     width: 25%;

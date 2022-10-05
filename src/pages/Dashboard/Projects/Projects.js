@@ -35,7 +35,6 @@ const Projects = () => {
 
   //   /Delete Orders
   const deleteHandler = (id) => {
-    console.log(id);
     const proceed = window.confirm(
       "Are you sure, you want to delete this package?"
     );

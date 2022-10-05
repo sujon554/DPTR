@@ -1,7 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Container, Modal, Navbar, Table } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Modal,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Navbar.css";
@@ -34,7 +40,7 @@ const Menu = () => {
     fontSize: "1.2rem",
     textAlign: "center",
     color: "red",
-    borderBottom: "2px solid #fff"
+    borderBottom: "2px solid #fff",
   };
 
   return (
@@ -49,13 +55,36 @@ const Menu = () => {
           >
             Home
           </NavLink>
-          <NavLink
-            className="navItem"
-            activeStyle={activeStyle}
-            to="/department"
-          >
-            Department
-          </NavLink>
+
+          <NavDropdown  className="navItem  NavDropdown" title="Department" id="basic-nav-dropdown">
+            
+            <NavDropdown.Divider />
+            <NavLink
+              className="navItem text-secondary"
+              activeStyle={activeStyle}
+              to="/department"
+            >
+              CSE
+            </NavLink>
+            <NavDropdown.Divider />
+            <NavLink
+              className="navItem text-secondary"
+              activeStyle={activeStyle}
+              to="/department"
+            >
+              EEE
+            </NavLink>
+            <NavDropdown.Divider />
+            <NavLink
+              className="navItem text-secondary"
+              activeStyle={activeStyle}
+              to="/department"
+            >
+              Textile
+            </NavLink>
+           
+          </NavDropdown>
+
           <NavLink className="navItem" activeStyle={activeStyle} to="/dptr">
             DPTR Committee
           </NavLink>
@@ -93,7 +122,7 @@ const Menu = () => {
             </NavLink>
           )}
 
-          <Modal  size="lg" show={show} onHide={handleClose}>
+          <Modal size="lg" show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Search Your Keywords</Modal.Title>
             </Modal.Header>
@@ -123,15 +152,21 @@ const Menu = () => {
                   })
                   .map((item) => (
                     <div key={item._id}>
-                     <table className="table table-striped mt-3">
-                      <tbody>
-                       <tr>
-                       <th> <Link className="text-decoration-none cursor-pointer" to={`/singleprojet/${item._id}`}>
-                        <h4 >{item.title}</h4>
-                      </Link></th>
-                       </tr>
-                      </tbody>
-                     </table>
+                      <table className="table table-striped mt-3">
+                        <tbody>
+                          <tr>
+                            <th>
+                              {" "}
+                              <Link
+                                className="text-decoration-none cursor-pointer"
+                                to={`/singleprojet/${item._id}`}
+                              >
+                                <h4>{item.title}</h4>
+                              </Link>
+                            </th>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   ))
               )}

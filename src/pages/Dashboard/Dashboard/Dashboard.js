@@ -11,7 +11,7 @@ import Projects from "../Projects/Projects";
 import RequestAccept from "../RequestAccept/RequestAccept";
 import RequestProject from "../CreateProject/CreateProject";
 import Review from "../Review/Review";
-import YourProjects from "../YourProjects/YourProjects";
+// import YourProjects from "../YourProjects/YourProjects";
 import StudentRequest from "../StudentRequest/StudentRequest";
 import Accept from "../Accept/Accept";
 
@@ -49,12 +49,12 @@ const Dashboard = () => {
                 >
                   Accept
                 </NavLink>
-                <NavLink
+                {/* <NavLink
                   className="mb-3 dashboard text-decoration-none"
                   to={`${url}/yourprojects`}
                 >
                   Your Project
-                </NavLink>
+                </NavLink> */}
                 
                 <NavLink
                       className=" mb-3 dashboard text-decoration-none"
@@ -147,15 +147,15 @@ const Dashboard = () => {
             <div className="menubar px-5 w-100">
               <Switch>
                 <Route exact path={path}>
-                <YourProjects />
+                <RequestProject / >
                 </Route>
 
                 <Route exact path={`${path}/studentrequest`}>
                   <StudentRequest/>
                 </Route>
-                <Route exact path={`${path}/yourprojects`}>
+                {/* <Route exact path={`${path}/yourprojects`}>
                   <YourProjects />
-                </Route>
+                </Route> */}
 
                 <Route path={`${path}/reviews`}>
                   <Review />

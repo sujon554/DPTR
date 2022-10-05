@@ -10,18 +10,20 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const StudentRequest = () => {
   const { register, handleSubmit, reset } = useForm();
   const [projects, setProjects] = useState([]);
+  const [status, setStatus] = useState([]);
   const [show, setShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
   const [success, setSuccess] = useState();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const { user } = useAuth();
+  const {id} = useParams();
 
   useEffect(() => {
     fetch(
@@ -29,6 +31,15 @@ const StudentRequest = () => {
     )
       .then((res) => res.json())
       .then((data) => setProjects(data));
+  }, []);
+
+  // check status 
+  useEffect(() => {
+    fetch(
+      `https://lit-fjord-88326.herokuapp.com/studentReq/${id}`
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }, []);
 
   // student request to supervisor from Modal 
@@ -52,25 +63,7 @@ const StudentRequest = () => {
     setSuccess("");
   };
 
-  //   /Delete projects
-  //   const deleteHandler = (id) => {
-  //     console.log(id);
-  //     const proceed = window.confirm(
-  //       "Are you sure, you want to delete this package?"
-  //     );
-  //     if (proceed) {
-  //       fetch(`https://lit-fjord-88326.herokuapp.com/reqproject/${id}`, {
-  //         method: "DELETE",
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           if (data.deletedCount > 0) {
-  //             const remainingProjects = projects.filter((Project) => Project._id !== id);
-  //             setProjects(remainingProjects);
-  //           }
-  //         });
-  //     }
-  //   };
+
 
   return (
     <div>
@@ -427,9 +420,13 @@ const StudentRequest = () => {
                 </Card.Body>
 
                 <Card.Footer>
-                  <small className="text-muted text-center">
-                    {Project.bookedServiceStatus}
-                  </small>
+                  {status.map(stat => (
+                    <p key={stat._id} className="text-muted text-center">
+                   console.log{stat}
+                    <span>{stat.bookedServiceStatus}</span>
+             
+              </p>
+                  ))}
                 </Card.Footer>
               </Card>
             </Col>
