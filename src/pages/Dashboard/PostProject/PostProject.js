@@ -11,19 +11,19 @@ const PostProject = () => {
 
   const onSubmit = (data) => {
     const proceed = window.confirm(
-      "Are you sure, you want to Request this Project?"
+      "Are you sure, you want to Add New Project?"
     );
-   if(proceed) {
-    axios
-    .post("https://lit-fjord-88326.herokuapp.com/projects", data)
-    .then((res) => {
-      if (res.data.insertedId) {
-        // alert("Package Addeded Successfully!");
-        reset();
-        setSuccess("Project Added Successfully !");
-      }
-    });
-   }
+    if (proceed) {
+      axios
+        .post("https://lit-fjord-88326.herokuapp.com/projects", data)
+        .then((res) => {
+          if (res.data.insertedId) {
+            // alert("Package Addeded Successfully!");
+            reset();
+            setSuccess("New Project Added Successfully !");
+          }
+        });
+    }
   };
 
   //Remove Success Text
@@ -68,11 +68,10 @@ const PostProject = () => {
               {...register("dptrCode", { required: true })}
             />
             <input
-            type="date"
+              type="date"
               style={{ outline: "none" }}
               onClick={successTextRemover}
               className="mb-3 py-2 px-3"
-             
               {...register("releaseDate", { required: true })}
             />
 
@@ -87,7 +86,7 @@ const PostProject = () => {
         </Col>
 
         <Col>
-          <Row xs={2} md={4} className="mx-0">
+          <Row xs={3} className="mx-0">
             {/* Developer One _____________________________ */}
             <input
               style={{ outline: "none" }}
@@ -96,13 +95,7 @@ const PostProject = () => {
               placeholder="Developer Name"
               {...register("Developer0", { required: true })}
             />
-            <input
-              style={{ outline: "none" }}
-              onClick={successTextRemover}
-              className="mb-3 py-2 px-3"
-              placeholder="Developer Department"
-              {...register("dept0")}
-            />
+
             <input
               style={{ outline: "none" }}
               onClick={successTextRemover}
@@ -121,7 +114,7 @@ const PostProject = () => {
         </Col>
 
         <Col>
-          <Row xs={2} md={4} className="mx-0">
+          <Row xs={3} className="mx-0">
             {/* Developer Two ______________________________________  */}
             <input
               style={{ outline: "none" }}
@@ -130,13 +123,7 @@ const PostProject = () => {
               placeholder="Developer Name"
               {...register("Developer1")}
             />
-            <input
-              style={{ outline: "none" }}
-              onClick={successTextRemover}
-              className="mb-3 py-2 px-3"
-              placeholder="Developer Department"
-              {...register("dept1")}
-            />
+
             <input
               style={{ outline: "none" }}
               onClick={successTextRemover}
@@ -155,7 +142,7 @@ const PostProject = () => {
         </Col>
 
         <Col>
-          <Row xs={2} md={4} className="mx-0">
+          <Row xs={3} className="mx-0">
             {/* Developer Three ______________________________________  */}
             <input
               style={{ outline: "none" }}
@@ -164,13 +151,7 @@ const PostProject = () => {
               placeholder="Developer Name"
               {...register("Developer2")}
             />
-            <input
-              style={{ outline: "none" }}
-              onClick={successTextRemover}
-              className="mb-3 py-2 px-3"
-              placeholder="Developer Department"
-              {...register("dept2")}
-            />
+
             <input
               style={{ outline: "none" }}
               onClick={successTextRemover}
@@ -189,35 +170,87 @@ const PostProject = () => {
         </Col>
 
         <Col>
-          <Row xs={2} md={4} className="mx-0">
-            {/* Supervisor ______________________________________  */}
+          <Row xs={3} className="mx-0">
+            {/* Developer Three ______________________________________  */}
             <input
               style={{ outline: "none" }}
               onClick={successTextRemover}
               className="mb-3 py-2 px-3"
-              placeholder="Supervisor Name"
-              {...register("supervisorName", { required: true })}
+              placeholder="Developer Name"
+              {...register("Developer3")}
             />
+
+            <input
+              style={{ outline: "none" }}
+              onClick={successTextRemover}
+              className="mb-3 py-2 px-3"
+              placeholder="Developer ID"
+              {...register("ID3")}
+            />
+            <input
+              style={{ outline: "none" }}
+              onClick={successTextRemover}
+              className="mb-3 py-2 px-3"
+              placeholder="Developer Intake"
+              {...register("intake3")}
+            />
+          </Row>
+        </Col>
+
+        <Col>
+          <Row xs={3} className="mx-0">
+            {/* Developer Three ______________________________________  */}
+            <input
+              style={{ outline: "none" }}
+              onClick={successTextRemover}
+              className="mb-3 py-2 px-3"
+              placeholder="Developer Name"
+              {...register("Developer4")}
+            />
+
+            <input
+              style={{ outline: "none" }}
+              onClick={successTextRemover}
+              className="mb-3 py-2 px-3"
+              placeholder="Developer ID"
+              {...register("ID4")}
+            />
+            <input
+              style={{ outline: "none" }}
+              onClick={successTextRemover}
+              className="mb-3 py-2 px-3"
+              placeholder="Developer Intake"
+              {...register("intake4")}
+            />
+          </Row>
+        </Col>
+
+        <Col>
+          <Row xs={3} className="mx-0">
+            {/* Supervisor ______________________________________  */}
+            <input
+              style={{ outline: "none" }}
+              className="mb-3 py-2 px-3"
+              readOnly=""
+              placeholder={user.displayName}
+              defaultValue={user.displayName}
+              {...register("userName")}
+            />
+            <input
+              style={{ outline: "none" }}
+              readOnly=""
+              className="mb-3 py-2 px-3"
+              placeholder={user.email}
+              defaultValue={user.email}
+              {...register("userEmail")}
+            />
+
             <input
               style={{ outline: "none" }}
               onClick={successTextRemover}
               className="mb-3 py-2 px-3"
               placeholder="Supervisor Designation"
               {...register("supervisorDesignation", { required: true })}
-            />
-            <input
-              style={{ outline: "none" }}
-              onClick={successTextRemover}
-              className="mb-3 py-2 px-3"
-              placeholder="Supervisor Department"
-              {...register("supervisorDept", { required: true })}
-            />
-            <input
-              style={{ outline: "none" }}
-              onClick={successTextRemover}
-              className="mb-3 py-2 px-3"
-              placeholder="Supervisor University"
-              {...register("supervisorUniversity", { required: true })}
             />
           </Row>
         </Col>
@@ -337,34 +370,10 @@ const PostProject = () => {
           defaultValue="Pending"
           {...register("bookedServiceStatus")}
         />
-        <Col>
-          <Row xs={2} md={2} className="mx-0">
-            <input
-              style={{ outline: "none" }}
-              className="mb-3 py-2 px-3"
-              readOnly=""
-              placeholder={user.displayName}
-              defaultValue={user.displayName}
-              {...register("userName")}
-            />
-            <input
-              style={{ outline: "none" }}
-              readOnly=""
-              className="mb-3 py-2 px-3"
-              placeholder={user.email}
-              defaultValue={user.email}
-              {...register("userEmail")}
-            />
-          </Row>
-        </Col>
 
         <Button className="w-100 p-2" variant="success" type="submit">
-          Add Project
+          Add New Project
         </Button>
-        
-
-
-        
       </Form>
 
       <p className="text-center text-danger text-uppercase mt-4 mb-5 pb-5 fs-4">
