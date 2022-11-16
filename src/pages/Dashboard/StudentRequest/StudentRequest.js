@@ -10,13 +10,14 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const StudentRequest = () => {
   const { register, handleSubmit, reset } = useForm();
   const [projects, setProjects] = useState([]);
   const [status, setStatus] = useState([]);
+  const [desable, setDesable] = useState(0);
   const [show, setShow] = useState(false);
   const [lgShow, setLgShow] = useState(false);
   const [success, setSuccess] = useState();
@@ -56,6 +57,7 @@ const StudentRequest = () => {
         }
       });
     }
+    setDesable(true);
   };
 
   //Remove Success Text
@@ -93,6 +95,7 @@ const StudentRequest = () => {
                     variant="success"
                     size="sm"
                     onClick={() => setLgShow(true)}
+                    disabled={desable}
                   >
                     Request
                   </Button>

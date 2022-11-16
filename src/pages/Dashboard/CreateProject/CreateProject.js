@@ -95,7 +95,6 @@ const RequestProject = () => {
         <Col>
           <Row md={3} className="mx-0">
             <input
-            
               style={{ outline: "none" }}
               className="mb-3 py-2 px-3"
               placeholder={user.displayName}
