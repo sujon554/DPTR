@@ -40,6 +40,8 @@ const Accept = () => {
     }
   };
 
+  
+
     return (
         <Container>
         <h1>

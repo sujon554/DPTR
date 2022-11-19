@@ -424,7 +424,6 @@ const StudentRequest = () => {
                 <Card.Footer>
                   {status.map(stat => (
                     <p key={stat._id} className="text-muted text-center">
-                   console.log{stat}
                     <span>{stat.bookedServiceStatus}</span>
              
               </p>

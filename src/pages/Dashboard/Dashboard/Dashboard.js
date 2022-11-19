@@ -62,12 +62,7 @@ const Dashboard = () => {
 
                 {supervisor && (
                   <Nav>
-                    <NavLink
-                      className=" mb-3 dashboard text-decoration-none"
-                      to={`${url}/requestaccept`}
-                    >
-                      Request Accept
-                    </NavLink>
+                   
 
                     <NavLink
                       className=" mb-3 dashboard text-decoration-none"
@@ -80,6 +75,14 @@ const Dashboard = () => {
                       to={`${url}/postproject`}
                     >
                       Add New Project
+                    </NavLink>
+
+
+                    <NavLink
+                      className=" mb-3 dashboard text-decoration-none"
+                      to={`${url}/requestaccept`}
+                    >
+                      Request Accept
                     </NavLink>
                   </Nav>
                 )}
