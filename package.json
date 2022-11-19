@@ -19,6 +19,7 @@
     "react-rating": "^2.0.5",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^9.1.1",
     "redux": "^4.1.1",
     "sweetalert2": "^11.4.17",
     "video-react": "^0.14.1",

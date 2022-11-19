@@ -28,7 +28,7 @@ const StudentRequest = () => {
 
   useEffect(() => {
     fetch(
-      `https://lit-fjord-88326.herokuapp.com/reqproject?email=${user.email}`
+      `https://lit-fjord-88326.herokuapp.com/singleProduct?email=${user.email}`
     )
       .then((res) => res.json())
       .then((data) => setProjects(data));
@@ -73,17 +73,16 @@ const StudentRequest = () => {
         <h1>
           Student<strong className="text-info"> Projects Request</strong>
         </h1>
-        <h3 className="my-5">Total projects {projects.length}</h3>
+        <h3 className="my-5">Total Projects: {projects.length}</h3>
         <Row className="g-5">
           {projects.map((Project) => (
-            <Col sm={2} md={4} xl={3} key={Project._id} Project={Project}>
+            <Col sm={1} md={3} key={Project._id} Project={Project}>
               <Card>
                 <Card.Body>
                   <Card.Title>{Project.title}</Card.Title>
+                  <p>Group: {Project.Groupname}</p>
+                  <p>Dept: {Project.department}</p>
                   <h6>{Project.supervisorName}</h6>
-                  <Card.Title>Booked By</Card.Title>
-                  <Card.Title>{Project.userName}</Card.Title>
-                  <h6 className="text-danger">User: {Project.userName}</h6>
                   <Card.Text className="text-danger">
                     {Project.userEmail}
                   </Card.Text>
