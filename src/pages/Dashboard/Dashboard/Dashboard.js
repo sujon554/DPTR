@@ -14,6 +14,8 @@ import Review from "../Review/Review";
 // import YourProjects from "../YourProjects/YourProjects";
 import StudentRequest from "../StudentRequest/StudentRequest";
 import Accept from "../Accept/Accept";
+import AcceptList from "../AcceptList/AcceptList";
+import UpdateProject from "../UpdateProject/UpdateProject";
 
 const Dashboard = () => {
   const { logOut, admin, supervisor } = useAuth();
@@ -47,21 +49,16 @@ const Dashboard = () => {
                   className="mb-3 dashboard text-decoration-none"
                   to={`${url}/accept`}
                 >
-                  Accept
+                  Accept from supervisor
                 </NavLink>
-                {/* <NavLink
-                  className="mb-3 dashboard text-decoration-none"
-                  to={`${url}/yourprojects`}
-                >
-                  Your Project
-                </NavLink> */}
-                
                 <NavLink
-                      className=" mb-3 dashboard text-decoration-none"
-                      to={`${url}/postproject`}
-                    >
-                      Add New Project
-                    </NavLink>
+                  className="mb-3 dashboard text-decoration-none"
+                  to={`${url}/acceptList`}
+                >
+                  AcceptList students
+                </NavLink>
+                
+            
 
                 {supervisor && (
                   <Nav>
@@ -70,6 +67,13 @@ const Dashboard = () => {
                       to={`${url}/requestaccept`}
                     >
                       Request Accept
+                    </NavLink>
+
+                    <NavLink
+                      className=" mb-3 dashboard text-decoration-none"
+                      to={`${url}/updateproject`}
+                    >
+                      Update Project Done
                     </NavLink>
                     <NavLink
                       className=" mb-3 dashboard text-decoration-none"
@@ -173,12 +177,20 @@ const Dashboard = () => {
                   <Projects />
                 </Route>
 
+                <Route path={`${path}/acceptList`}>
+                  <AcceptList />
+                </Route>
+
                 <Route path={`${path}/manageallprojects`}>
                   <ManageAllProjects />
                 </Route>
 
                 <Route path={`${path}/makeadmin`}>
                   <MakeAdmin></MakeAdmin>
+                </Route>
+
+                <Route path={`${path}/updateproject`}>
+                  <UpdateProject />
                 </Route>
                 <Route path={`${path}/makesupervisor`}>
                   <MakeSupervisor />

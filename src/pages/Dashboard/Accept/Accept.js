@@ -6,7 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 const Accept = () => {
     const [projects, setProjects] = useState([]);
     const [reload, setReload] = useState(false);
-    const [status, setStatus] = useState("Approved");
+    const [status, setStatus] = useState("Accept");
   const { user } = useAuth();
 
   
@@ -43,7 +43,7 @@ const Accept = () => {
     return (
         <Container>
         <h1>
-          Team<strong className="text-info"> Projects Request</strong>
+        Accept<strong className="text-info"> from Supervisor</strong>
         </h1>
         
         <Row className="g-5">
